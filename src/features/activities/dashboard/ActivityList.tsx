@@ -3,15 +3,14 @@ import ActivityCard from "./ActivityCard";
 
 type Props = {
     activities: Activity[],
-    handleViewActivity: (activity: Activity) => void,
-    deleteActivity: (id: string) => void,
+    handleViewActivity: (activity: Activity) => void
 }
 
-function ActivityList({ activities, handleViewActivity, deleteActivity }: Props) {
+function ActivityList({ activities, handleViewActivity }: Props) {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
             {activities.map((activity) => (
-                <ActivityCard key={activity.id} activity={activity} handleViewActivity={handleViewActivity} deleteActivity={deleteActivity} />
+                <ActivityCard key={activity.id} activity={activity} handleViewActivity={handleViewActivity} />
             ))}
         </Box>
     );

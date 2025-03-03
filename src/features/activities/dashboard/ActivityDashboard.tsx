@@ -11,23 +11,21 @@ type Props = {
 
     isEdit?: boolean,
     openForm: (activity: Activity) => void,
-    closeForm: () => void,
-    deleteActivity: (id: string) => void,
-    submitForm: (activity: Activity) => void,
+    closeForm: () => void
 }
 
-function ActivityDashboard({ activities, selActivity, handleViewActivity, handleCancelActivity, isEdit, openForm, closeForm, submitForm, deleteActivity }: Props) {
+function ActivityDashboard({ activities, selActivity, handleViewActivity, handleCancelActivity, isEdit, openForm, closeForm }: Props) {
     return (
         <Grid2 container spacing={3}>
             <Grid2 size={7}>
-                <ActivityList activities={activities} handleViewActivity={handleViewActivity} deleteActivity={deleteActivity} />
+                <ActivityList activities={activities} handleViewActivity={handleViewActivity} />
             </Grid2>
             <Grid2 size={5}>
                 {
-                    selActivity && !isEdit && <ActivityDetail activity={selActivity} handleCancelActivity={handleCancelActivity} openForm={openForm} />
+                    selActivity && !isEdit && <ActivityDetail selActivity={selActivity} handleCancelActivity={handleCancelActivity} openForm={openForm} />
                 }
                 {
-                    isEdit && <ActivityForm closeForm={closeForm} activity={selActivity} submitForm={submitForm} />
+                    isEdit && <ActivityForm closeForm={closeForm} activity={selActivity} />
                 }
             </Grid2>
         </Grid2>
